@@ -3,8 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Logger.iml" filepath="$PROJECT_DIR$/.idea/Logger.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Receiver/.idea/Receiver.iml" filepath="$PROJECT_DIR$/../Receiver/.idea/Receiver.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Transmitter/.idea/Transmitter.iml" filepath="$PROJECT_DIR$/../Transmitter/.idea/Transmitter.iml" />
     </modules>
   </component>
 </project>
