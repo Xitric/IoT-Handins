@@ -1,9 +1,8 @@
 import machine
-import utime
 import sys
 
-ledAzure = machine.Pin(33)
-ledWifi = machine.Pin(32)
+ledAzure = machine.Pin(33, machine.Pin.OUT)
+ledWifi = machine.Pin(32, machine.Pin.OUT)
 
 def turnOn():
     ledAzure.on()
@@ -20,5 +19,6 @@ def readInput():
     elif value == '0':
         turnOff()
 
+turnOff()
 while True:
     readInput()

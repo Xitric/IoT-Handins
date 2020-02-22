@@ -1,11 +1,13 @@
 from serial import Serial
 import time
 import logging
+import os
 
-serConOut = Serial('COM3', 115200)
-serConIn = Serial('/dev/cu.SLAB_USBtoUART', 115200)
+baud_rate = 115200
+serConOut = Serial(os.environ['TRANSMITTER_PORT'], baud_rate)
+serConIn = Serial(os.environ['RECEIVER_PORT'], baud_rate)
 
-logging.basicConfig(filename='log.log', filemode='w', format='%(message)s', level=logging.INFO)
+logging.basicConfig(filename='measurements1.csv', filemode='w', format='%(message)s', level=logging.INFO)
 
 
 def signalTurnOn():
@@ -17,18 +19,18 @@ def signalTurnOff():
 
 
 def logTimeStamp(signal):
-    logging.info('before_send\t{}\t{}'.format(signal, time.time_ns()))
+    logging.info('before_send;{};{}'.format(signal, time.time_ns()))
     serConOut.write(signal.encode('utf-8'))
-    logging.info('after_send\t{}\t{}'.format(signal, time.time_ns()))
+    logging.info('after_send;{};{}'.format(signal, time.time_ns()))
     readSignal()
 
 
 def readSignal():
-    value = str(serConIn.read())
-    logging.info('recieve\t{}\t{}'.format(value, time.time_ns()))
+    value = serConIn.read().decode('utf-8')
+    logging.info('receive;{};{}'.format(value, time.time_ns()))
 
 
-for _ in range(10):
+for _ in range(1800):
     signalTurnOn()
     time.sleep(1)
     signalTurnOff()
