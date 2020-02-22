@@ -14,7 +14,17 @@ sda = Pin(I2C0_SDA)
 i2c = I2C(-1, scl=scl, sda=sda)
 
 s = BH1750(i2c)
+light = False
 
 for _ in range(100000):
-    print(s.luminance(BH1750.CONT_HIRES_1))
+    luminance = s.luminance(BH1750.CONT_HIRES_1)
+
+    if luminance > 6 and not light:
+        light = True
+        print(1)
+
+    elif luminance < 6 and light:
+        light = False
+        print(0)
+
     utime.sleep_ms(1)
