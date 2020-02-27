@@ -8,7 +8,7 @@
 
 iot5:ESP32 a owl:Class .
 iot5:PinSensor a brick:Sensor .
-iot5:Thermistor a iot5:PinSensor; a frame:Signal ; frame:hasMeasurement iot5:Water .
+iot5:Thermistor a iot5:PinSensor; a frame:Signal ; frame:hasMeasurement iot5:Water ; rdfs:label 'thermis'.
 iot5:Water a owl:Class .
 iot5:Thermometer a brick:Sensor; a frame:Signal ; frame:hasMeasurement iot5:Water .
 
