@@ -1,0 +1,26 @@
+@prefix frame: <https://brickschema.org/schema/1.0.3/BrickFrame#> .
+@prefix brick: <https://brickschema.org/schema/1.0.3/Brick#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix iot5: <https://github.com/Xitric/IoT-Handins> .
+
+iot5:ESP32 a owl:Class .
+iot5:PinSensor a brick:Sensor .
+iot5:Thermistor a iot5:PinSensor; a frame:Signal ; frame:hasMeasurement iot5:Water .
+iot5:Water a owl:Class .
+iot5:Thermometer a brick:Sensor; a frame:Signal ; frame:hasMeasurement iot5:Water .
+
+
+iot5:MapFunction a frame:FunctionBlock;
+         rdfs:subClassOf [
+            a owl:Restriction;
+            owl:onProperty frame:hasInput;
+            owl:allValuesFrom iot5:Thermistor;
+            ];
+         rdfs:subClassOf [
+            a owl:Restriction;
+            owl:onProperty frame:hasOutput;
+            owl:allValuesFrom iot5:Thermometer;
+            ].
