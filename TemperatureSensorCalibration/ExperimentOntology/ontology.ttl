@@ -1,0 +1,86 @@
+@prefix brick: <https://brickschema.org/schema/1.0.3/Brick#> .
+@prefix frame: <https://brickschema.org/schema/1.0.3/BrickFrame#> .
+@prefix iot5: <https://github.com/Xitric/IoT-Handins#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://github.com/Xitric/IoT-Handins#/esp32/1> a iot5:ESP32 ;
+    iot5:connectedTo <https://github.com/Xitric/IoT-Handins#/thermistor/1> .
+
+<https://github.com/Xitric/IoT-Handins#/function/avg> a iot5:Function ;
+    frame:hasInput <https://github.com/Xitric/IoT-Handins#/thermistor/1> ;
+    frame:hasOutput <https://github.com/Xitric/IoT-Handins#/thermometerSim/avg> ;
+    iot5:a "0.8278"^^xsd:float ;
+    iot5:b "5.9526"^^xsd:float ;
+    iot5:hasType iot5:LinearFunction .
+
+<https://github.com/Xitric/IoT-Handins#/function/max> a iot5:Function ;
+    frame:hasInput <https://github.com/Xitric/IoT-Handins#/thermistor/1> ;
+    frame:hasOutput <https://github.com/Xitric/IoT-Handins#/thermometerSim/max> ;
+    iot5:a "0.7984"^^xsd:float ;
+    iot5:b "10.237"^^xsd:float ;
+    iot5:hasType iot5:LinearFunction .
+
+<https://github.com/Xitric/IoT-Handins#/function/min> a iot5:Function ;
+    frame:hasInput <https://github.com/Xitric/IoT-Handins#/thermistor/1> ;
+    frame:hasOutput <https://github.com/Xitric/IoT-Handins#/thermometerSim/min> ;
+    iot5:a "0.836"^^xsd:float ;
+    iot5:b "3.2044"^^xsd:float ;
+    iot5:hasType iot5:LinearFunction .
+
+<https://github.com/Xitric/IoT-Handins#/thermometer/real> a iot5:Water ;
+    frame:hasMeasurement <https://github.com/Xitric/IoT-Handins#/water/1> .
+
+iot5:ExponentialFunction a iot5:FunctionType .
+
+iot5:a a owl:DatatypeProperty ;
+    rdfs:domain iot5:Function ;
+    rdfs:range xsd:float .
+
+iot5:b a owl:DatatypeProperty ;
+    rdfs:domain iot5:Function ;
+    rdfs:range xsd:float .
+
+iot5:connectedTo a owl:ObjectProperty ;
+    rdfs:domain iot5:ESP32 ;
+    rdfs:range iot5:PinSensor .
+
+iot5:Thermometer a brick:Sensor,
+        frame:Signal ;
+    frame:hasMeasurement iot5:Water .
+
+iot5:hasType a owl:ObjectProperty ;
+    rdfs:domain iot5:Function ;
+    rdfs:range iot5:FunctionType .
+
+iot5:ESP32 a owl:Class .
+
+iot5:PinSensor a brick:Sensor .
+
+iot5:Thermistor a frame:Signal,
+        iot5:PinSensor ;
+    frame:hasMeasurement iot5:Water .
+
+iot5:LinearFunction a iot5:FunctionType .
+
+iot5:Water a owl:Class .
+
+<https://github.com/Xitric/IoT-Handins#/thermistor/1> a iot5:Thermistor ;
+    frame:hasMeasurement <https://github.com/Xitric/IoT-Handins#/water/1> .
+
+iot5:FunctionType a owl:Class .
+
+iot5:Function a owl:Class ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom iot5:Thermistor ;
+            owl:onProperty frame:hasInput ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom iot5:Thermometer ;
+            owl:onProperty frame:hasOutput ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom iot5:FunctionType ;
+            owl:onProperty iot5:hasType ] .
+

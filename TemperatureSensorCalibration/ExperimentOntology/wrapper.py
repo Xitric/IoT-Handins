@@ -19,8 +19,6 @@ XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 def model():
     g = Graph()
 
-    # g.parse('turtle/demo/Brick_expanded.ttl', format='turtle')
-
     # Read file describing our data types and relationships for build information
     g.parse('ThermistorSchema.ttl', format='turtle')
 

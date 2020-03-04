@@ -26,40 +26,45 @@ g.add((thermometerReal, FRAME.hasMeasurement, water1))
 
 g.add((functionMin, RDF.type, IOT5.Function))
 g.add((functionMin, IOT5.hasType, IOT5.LinearFunction))
-g.add((functionMin, BRICK.hasInput, thermistor1))
+g.add((functionMin, FRAME.hasInput, thermistor1))
 g.add((functionMin, IOT5.a, Literal(0.836, datatype=XSD.float)))
 g.add((functionMin, IOT5.b, Literal(3.2044, datatype=XSD.float)))
 
 g.add((functionMax, RDF.type, IOT5.Function))
 g.add((functionMax, IOT5.hasType, IOT5.LinearFunction))
-g.add((functionMax, BRICK.hasInput, thermistor1))
+g.add((functionMax, FRAME.hasInput, thermistor1))
 g.add((functionMax, IOT5.a, Literal(0.7984, datatype=XSD.float)))
 g.add((functionMax, IOT5.b, Literal(10.237, datatype=XSD.float)))
 
 g.add((functionAvg, RDF.type, IOT5.Function))
 g.add((functionAvg, IOT5.hasType, IOT5.LinearFunction))
-g.add((functionAvg, BRICK.hasInput, thermistor1))
+g.add((functionAvg, FRAME.hasInput, thermistor1))
 g.add((functionAvg, IOT5.a, Literal(0.8278, datatype=XSD.float)))
 g.add((functionAvg, IOT5.b, Literal(5.9526, datatype=XSD.float)))
 
-g.add((functionMin, BRICK.hasOutput, thermometerSimMin))
-g.add((functionMax, BRICK.hasOutput, thermometerSimMax))
-g.add((functionAvg, BRICK.hasOutput, thermometerSimAvg))
-
+g.add((functionMin, FRAME.hasOutput, thermometerSimMin))
+g.add((functionMax, FRAME.hasOutput, thermometerSimMax))
+g.add((functionAvg, FRAME.hasOutput, thermometerSimAvg))
 
 g.serialize("ontology.ttl", 'turtle')
+
 
 def query(g, q):
     r = g.query(q)
     return list(map(lambda row: list(row), r))
 
 
-q_sensor = \
-    '''
-    SELECT DISTINCT ?sensor_name 
+# thermistor to the 3 functions
+q_function_info = '''
+    SELECT DISTINCT ?a ?b ?function_type ?function
     WHERE {
-        ?sensor     rdf:type        iot5:PinSensor .
-        ?sensor     rdfs:label      ?sensor_name .
+        ?thermistor     rdf:type/rdf:subClassOf*    iot5:Thermistor .
+        ?function       frame:hasInput              ?thermistor .
+        ?function       rdf:type                    iot5:Function .
+        ?function       iot5:a                      ?a .
+        ?function       iot5:b                      ?b .
+        ?function       iot5:hasType                ?function_type . 
     }
     '''
-print(query(g, q_sensor))
+
+print(query(g, q_function_info))
