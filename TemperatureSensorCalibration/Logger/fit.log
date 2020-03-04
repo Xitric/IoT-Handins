@@ -1,0 +1,751 @@
+
+
+*******************************************************************************
+Wed Mar 04 10:02:18 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=m*x+b
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   m             b            
+   0 3.1315672136e+38   0.00e+00  1.12e+18    1.000000e+00   1.000000e+00
+   5 2.1935066965e+04  -9.28e-05  1.12e+13    2.320444e-17   1.000000e+00
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 21935.1
+rel. change during last iteration : -9.28019e-10
+
+degrees of freedom    (FIT_NDF)                        : 123
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 13.3542
+variance of residuals (reduced chisquare) = WSSR/ndf   : 178.334
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+m               = 2.32044e-17      +/- 2.679e-13    (1.154e+06%)
+b               = 1                +/- 4.24e+05     (4.24e+07%)
+
+correlation matrix of the fit parameters:
+                m      b      
+m               1.000 
+b              -1.000  1.000 
+
+
+*******************************************************************************
+Wed Mar 04 10:05:14 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=20+(79-20)*2.71828182846^(-k*x)
+fitted parameters initialized with current variable values
+
+
+
+*******************************************************************************
+Wed Mar 04 10:06:27 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=20+(79-20)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   k            
+   0 6.1220000000e+04   0.00e+00  0.00e+00    1.000000e+00
+BREAK: Singular matrix in Givens()
+
+*******************************************************************************
+Wed Mar 04 10:08:38 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=20+(79-20)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   k            
+   0 5.8093000000e+04   0.00e+00  0.00e+00    1.001000e+00
+BREAK: Singular matrix in Givens()
+
+*******************************************************************************
+Wed Mar 04 10:08:57 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(79-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             k            
+   0 1.8493700000e+05   0.00e+00  7.04e-01    1.000000e+00   1.002001e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:09:41 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6083193548e+04   0.00e+00  2.15e+01    3.741935e+01   1.000000e+00   1.003003e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:15:06 2020
+
+
+FIT:    data read from 'ground.dat'
+        format = z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.0458193548e+04   0.00e+00  2.19e+01    3.741935e+01   7.600000e+01   1.004006e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:15:37 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2:3
+        format = x:z:s
+BREAK: No data to fit
+
+*******************************************************************************
+Wed Mar 04 10:15:55 2020
+
+
+FIT:    data read from 'ground.dat' using 1:5
+        format = x:z
+BREAK: No data to fit
+
+*******************************************************************************
+Wed Mar 04 10:16:00 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.0458193548e+04   0.00e+00  2.19e+01    3.741935e+01   7.600000e+01   1.005010e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:03 2020
+
+
+FIT:    data read from 'ground.dat' using 1:3
+        format = x:z
+BREAK: No data to fit
+
+*******************************************************************************
+Wed Mar 04 10:16:07 2020
+
+
+FIT:    data read from 'ground.dat' using 1:1
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 1.0002510831e+28   0.00e+00  2.19e+01    3.741935e+01   7.600000e+01   1.006015e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:16 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 7.5775901252e+27   0.00e+00  4.50e+12    7.817263e+12   5.023613e-02   1.007021e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:28 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6226560180e+04   0.00e+00  2.15e+01    3.741935e+01   5.023613e-02   1.008028e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:29 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6226497298e+04   0.00e+00  2.15e+01    3.741935e+01   5.065011e-02   1.009036e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:29 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6226433375e+04   0.00e+00  2.15e+01    3.741935e+01   5.107093e-02   1.010045e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:30 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6226368387e+04   0.00e+00  2.15e+01    3.741935e+01   5.149877e-02   1.011055e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:30 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6226302306e+04   0.00e+00  2.15e+01    3.741935e+01   5.193381e-02   1.012066e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:30 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6226235105e+04   0.00e+00  2.15e+01    3.741935e+01   5.237623e-02   1.013078e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:31 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6226166755e+04   0.00e+00  2.15e+01    3.741935e+01   5.282621e-02   1.014091e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:31 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6226097226e+04   0.00e+00  2.15e+01    3.741935e+01   5.328396e-02   1.015105e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:31 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6226026488e+04   0.00e+00  2.15e+01    3.741935e+01   5.374967e-02   1.016121e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:32 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225954509e+04   0.00e+00  2.15e+01    3.741935e+01   5.422355e-02   1.017137e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:16:54 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225881256e+04   0.00e+00  2.15e+01    3.741935e+01   5.470583e-02   1.018154e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:17:17 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225806695e+04   0.00e+00  2.15e+01    3.741935e+01   5.519671e-02   1.019172e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:17:45 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225730790e+04   0.00e+00  2.15e+01    3.741935e+01   5.569645e-02   1.020191e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:18:15 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225653507e+04   0.00e+00  2.15e+01    3.741935e+01   5.620527e-02   1.021211e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:18:44 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225574806e+04   0.00e+00  2.15e+01    3.741935e+01   5.672342e-02   1.022233e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:20:12 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225494648e+04   0.00e+00  2.15e+01    3.741935e+01   5.725117e-02   1.023255e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:20:20 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225412993e+04   0.00e+00  2.15e+01    3.741935e+01   5.778879e-02   1.024278e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:20:21 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225329798e+04   0.00e+00  2.15e+01    3.741935e+01   5.833654e-02   1.025302e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:20:22 2020
+
+
+FIT:    data read from 'ground.dat' using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.6225245020e+04   0.00e+00  2.15e+01    3.741935e+01   5.889472e-02   1.026328e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:21:01 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        #datapoints = 125
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 1.9055300000e+05   0.00e+00  5.77e-01    1.000000e+00   1.000000e+00   1.000000e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:26:53 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [-1600.00 : 14400.0]
+        #datapoints = 117
+        residuals are weighted equally (unit weight)
+
+function used for fitting: f(x)
+	f(x)=m*x+b
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   m             b            
+   0 8.3053584955e+09   0.00e+00  5.93e+03    1.000000e+00   7.600000e+01
+   5 2.9281709551e+03  -1.98e-06  5.93e-02   -2.931567e-03   5.990266e+01
+
+After 5 iterations the fit converged.
+final sum of squares of residuals : 2928.17
+rel. change during last iteration : -1.97828e-11
+
+degrees of freedom    (FIT_NDF)                        : 115
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 5.04602
+variance of residuals (reduced chisquare) = WSSR/ndf   : 25.4624
+
+Final set of parameters            Asymptotic Standard Error
+=======================            ==========================
+m               = -0.00293157      +/- 0.0001114    (3.801%)
+b               = 59.9027          +/- 0.9346       (1.56%)
+
+correlation matrix of the fit parameters:
+                m      b      
+m               1.000 
+b              -0.867  1.000 
+
+
+*******************************************************************************
+Wed Mar 04 10:29:03 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [-1600.00 : 14400.0]
+        #datapoints = 117
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 1.9483394870e+04   0.00e+00  2.17e+01    3.741935e+01   5.990266e+01   1.001000e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:29:57 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [-1600.00 : 14400.0]
+        #datapoints = 117
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 1.9139172414e+04   0.00e+00  2.24e+01    3.827586e+01   7.600000e+01   1.002001e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:31:30 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [-1600.00 : 14400.0]
+        #datapoints = 117
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 1.9106019310e+04   0.00e+00  2.24e+01    3.827586e+01   7.600000e+01   1.003003e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:31:56 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [6.59384e-11 : 16000.0]
+        #datapoints = 124
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(b-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.0536339121e+04   0.00e+00  2.24e+01    3.871638e+01   7.689994e+01   1.004006e+00
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:32:14 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [6.59384e-11 : 16000.0]
+        #datapoints = 124
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=22+(79-22)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   k            
+   0 5.1581480000e+04   0.00e+00  0.00e+00    1.005010e+00
+BREAK: Singular matrix in Givens()
+
+*******************************************************************************
+Wed Mar 04 10:32:41 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [6.59384e-11 : 16000.0]
+        #datapoints = 124
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=22+(79-22)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   k            
+   0 5.1581480000e+04   0.00e+00  0.00e+00    1.006015e+00
+BREAK: Singular matrix in Givens()
+
+*******************************************************************************
+Wed Mar 04 10:34:36 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [6.59384e-11 : 16000.0]
+        #datapoints = 124
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=22+(79-22)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   k            
+   0 5.1581480000e+04   0.00e+00  0.00e+00    1.007021e+00
+BREAK: Singular matrix in Givens()
+
+*******************************************************************************
+Wed Mar 04 10:39:24 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [6.59384e-11 : 16000.0]
+        #datapoints = 124
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=22+(79-22)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 1.8321890436e+05   0.00e+00  2.64e+00    3.784677e+01   7.689994e+01   1.000000e-05
+BREAK: Singular matrix in Invert_RtR
+
+*******************************************************************************
+Wed Mar 04 10:40:24 2020
+
+
+FIT:    data read from "ground.dat" using 1:2
+        format = x:z
+        x range restricted to [6.59384e-11 : 16000.0]
+        #datapoints = 124
+        residuals are weighted equally (unit weight)
+
+function used for fitting: g(x)
+	g(x)=a+(r-a)*exp(-k*x)
+fitted parameters initialized with current variable values
+
+iter      chisq       delta/lim  lambda   a             b             k            
+   0 2.1487728158e+04   0.00e+00  1.24e+01    2.200000e+01   7.689994e+01   1.000000e-04
+BREAK: Singular matrix in Invert_RtR
