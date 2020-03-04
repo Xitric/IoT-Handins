@@ -1,6 +1,5 @@
 from rdflib import Graph, Namespace
 
-
 # Standard namespaces that we can refer to
 # See: https://www.w3.org/TR/rdf-schema/
 RDF = Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#')
@@ -10,28 +9,28 @@ RDFS = Namespace('http://www.w3.org/2000/01/rdf-schema#')
 OWL = Namespace('http://www.w3.org/2002/07/owl#')
 
 # See: https://brickschema.org/ontology
-BRICK = Namespace('https://brickschema.org/schema/1.1.0/Brick#')
+BRICK = Namespace('https://brickschema.org/schema/1.0.3/Brick#')
+FRAME = Namespace('https://brickschema.org/schema/1.0.3/BrickFrame#')
 
-IOT5 = Namespace('https://github.com/Xitric/IoT-Handins')
+IOT5 = Namespace('https://github.com/Xitric/IoT-Handins#')
+XSD = Namespace('http://www.w3.org/2001/XMLSchema#')
 
-# We define our own namespace to avoid naming conflicts
-# This is used to represent build information like git repository, branch, commit id, etc.
-BUILD = Namespace('https://github.com/Xitric/IoT-Exercises/releases/tag/v1.0.0/Metadata/Build#')
 
 def model():
     g = Graph()
 
-    g.parse('turtle/demo/Brick_expanded.ttl', format='turtle')
+    # g.parse('turtle/demo/Brick_expanded.ttl', format='turtle')
 
     # Read file describing our data types and relationships for build information
-    g.parse('turtle/buildinfo/Build_extension.ttl', format='turtle')
+    g.parse('ThermistorSchema.ttl', format='turtle')
 
     g.bind('rdf', RDF)
     g.bind('rdfs', RDFS)
     g.bind('owl', OWL)
     g.bind('brick', BRICK)
     g.bind('iot5', IOT5)
-    g.bind('build', BUILD)
+    g.bind('xsd', XSD)
+    g.bind('frame', FRAME)
 
     return g
 
@@ -39,5 +38,3 @@ def model():
 def query(g, q):
     r = g.query(q)
     return list(map(lambda row: list(row), r))
-
-

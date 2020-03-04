@@ -3,24 +3,47 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-@prefix iot5: <https://github.com/Xitric/IoT-Handins> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix iot5: <https://github.com/Xitric/IoT-Handins#> .
 
 iot5:ESP32 a owl:Class .
 iot5:PinSensor a brick:Sensor .
-iot5:Thermistor a iot5:PinSensor; a frame:Signal ; frame:hasMeasurement iot5:Water ; rdfs:label 'thermis'.
+iot5:Thermistor a iot5:PinSensor; a frame:Signal ; frame:hasMeasurement iot5:Water .
 iot5:Water a owl:Class .
 iot5:Thermometer a brick:Sensor; a frame:Signal ; frame:hasMeasurement iot5:Water .
+iot5:FunctionType a owl:Class .
+iot5:LinearFunction a iot5:FunctionType .
+iot5:ExponentialFunction a iot5:FunctionType .
 
+iot5:connectedTo a owl:ObjectProperty;
+    rdfs:domain iot5:ESP32 ;
+    rdfs:range iot5:PinSensor .
 
-iot5:MapFunction a frame:FunctionBlock;
-         rdfs:subClassOf [
-            a owl:Restriction;
-            owl:onProperty frame:hasInput;
-            owl:allValuesFrom iot5:Thermistor;
-            ];
-         rdfs:subClassOf [
-            a owl:Restriction;
-            owl:onProperty frame:hasOutput;
-            owl:allValuesFrom iot5:Thermometer;
-            ].
+iot5:hasType a owl:ObjectProperty;
+    rdfs:domain iot5:Function ;
+    rdfs:range iot5:FunctionType .
+
+iot5:a a owl:DatatypeProperty;
+    rdfs:domain iot5:Function ;
+    rdfs:range xsd:float .
+
+iot5:b a owl:DatatypeProperty;
+    rdfs:domain iot5:Function ;
+    rdfs:range xsd:float .
+
+iot5:Function a owl:Class;
+     rdfs:subClassOf [
+        a owl:Restriction;
+        owl:onProperty frame:hasInput;
+        owl:allValuesFrom iot5:Thermistor;
+        ];
+     rdfs:subClassOf [
+        a owl:Restriction;
+        owl:onProperty frame:hasOutput;
+        owl:allValuesFrom iot5:Thermometer;
+        ];
+     rdfs:subClassOf [
+        a owl:Restriction;
+        owl:onProperty iot5:hasType;
+        owl:allValuesFrom iot5:FunctionType;
+        ].
