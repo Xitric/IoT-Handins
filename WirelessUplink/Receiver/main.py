@@ -1,21 +1,31 @@
-from serial import Serial
-import os
 import socket
-
-s = socket.socket()
-# addr_info = socket.getaddrinfo('127.0.0.1', 5000)
-# s.bind(addr_info[0][-1])
-# (connection, _) = s.accept()
-s.bind(('', 5000))
-s.listen()
-c, a = s.accept()
-print("Connection from {}".format(a))
-
-while True:
-    msg = c.recv(4096).decode('utf-8')
-    print(msg)
-
-# baud_rate = 115200
-# serConIn = Serial(os.environ['RECEIVER_PORT'], baud_rate)
+from filelock import FileLock
+from datetime import datetime
 
 
+def get_connection() -> socket.socket:
+    s = socket.socket()
+    s.bind(("", 5000))
+    s.listen()
+    c, a = s.accept()
+    print("Connection from {}".format(a))
+    return c
+
+
+with FileLock("logs.csv.lock"):
+    connection = get_connection()
+
+    log = open("logs.csv", "a")
+    while True:
+        msg = connection.recv(4096).decode("utf-8")
+        elements = msg.split(";")
+
+        send_time = datetime.strptime(elements[1], "%Y-%m-%d %H:%M:%S.%f")
+        reception_time = datetime.now()
+        reception_time_string = reception_time.strftime("%Y-%m-%d %H:%M:%S.%f")
+        latency = (reception_time - send_time).total_seconds() * 1_000_000
+
+        # Format is:
+        # Message number; send time; reception time; latency; temperature; light level
+        log.write("{};{};{};{};{};{}\n".format(elements[0], elements[1], reception_time_string,
+                                             latency, elements[2], elements[3]))

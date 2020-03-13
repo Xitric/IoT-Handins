@@ -104,12 +104,15 @@ class ConnectedState(State):
         while True:
             try:
                 self.measurement_count += 1
-                send_time = RTC().datetime()
                 temperature = adc.read()
                 light_level = light_sensor.luminance(BH1750.CONT_HIRES_1)
 
+                send_time = RTC().datetime()
+                send_time_string = "{}-{}-{} {}:{}:{}.{}".format(send_time[0], send_time[1], send_time[2], send_time[4],
+                                                                 send_time[5], send_time[6], send_time[7])
+
                 self.wifi.connection.sendall('{};{};{};{};'
-                                             .format(self.measurement_count, send_time, temperature, light_level)
+                                             .format(self.measurement_count, send_time_string, temperature, light_level)
                                              .encode('utf-8'))
                 led.on()
                 utime.sleep(10)
