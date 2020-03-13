@@ -5,6 +5,7 @@ from bh1750 import BH1750
 from socket import socket
 from network import WLAN, STA_IF
 import time_manager as ntptime
+import secrets
 
 ECONNRESET = 104
 EHOSTUNREACH = 113
@@ -44,9 +45,10 @@ class StateMachine:
         self.current_state = None
 
     def run(self):
-        while True:
-            if self.current_state:
-                self.current_state.perform()
+        previous_state = None
+        while previous_state != self.current_state and self.current_state:
+            previous_state = self.current_state
+            self.current_state.perform()
 
 
 class State:
@@ -62,10 +64,10 @@ class State:
 class NoNetworkState(State):
     def perform(self):
         while not self.wifi.station.isconnected():
-            # print("Trying to connect to WiFi")
+            print("Trying to connect to WiFi")
             self.wifi.station.connect(self.wifi.ssid, self.wifi.pw)
             utime.sleep(1)
-        # print("WiFi enabled")
+        print("WiFi enabled")
         self.state_machine.current_state = state_network
 
 
@@ -73,18 +75,18 @@ class NetworkState(State):
     def perform(self):
         self.wifi.renew_connection()
         while True:
-            # print("Connecting to host")
+            print("Connecting to host")
             try:
-                self.wifi.connection.connect(('192.168.43.95', 5000))
-                # print("Connection established")
+                self.wifi.connection.connect(('192.168.87.24', 5000))
+                print("Connection established")
                 self.state_machine.current_state = state_connected
                 break
             except OSError as e:
                 if e.args[0] == ENONETWORK:
-                    # print("Lost network")
+                    print("Lost network")
                     self.state_machine.current_state = state_no_network
                     break
-                elif e.args[0] != EHOSTUNREACH:
+                elif e.args[0] not in [EHOSTUNREACH, ECONNRESET]:
                     raise
                 self.wifi.renew_connection()
                 utime.sleep(1)
@@ -97,28 +99,31 @@ class ConnectedState(State):
         self.measurement_count = 0
 
     def perform(self):
-        # print("Sending value")
-        try:
-            self.measurement_count += 1
-            send_time = RTC().datetime()
-            temperature = adc.read()
-            light_level = light_sensor.luminance(BH1750.CONT_HIRES_1)
+        print("Sending values")
+        ntptime.settime()
+        while True:
+            try:
+                self.measurement_count += 1
+                send_time = RTC().datetime()
+                temperature = adc.read()
+                light_level = light_sensor.luminance(BH1750.CONT_HIRES_1)
 
-            self.wifi.connection.sendall('{};{};{};{}'
-                                         .format(self.measurement_count, send_time, temperature, light_level)
-                                         .encode('utf-8'))
-            led.on()
-            utime.sleep(1)
-        except OSError as e:
-            if e.args[0] not in [ECONNRESET, EHOSTUNREACH]:
-                raise
-            led.off()
-            # print("Lost connection to host")
-            self.state_machine.current_state = state_network
+                self.wifi.connection.sendall('{};{};{};{};'
+                                             .format(self.measurement_count, send_time, temperature, light_level)
+                                             .encode('utf-8'))
+                led.on()
+                utime.sleep(10)
+            except OSError as e:
+                if e.args[0] not in [ECONNRESET, EHOSTUNREACH]:
+                    raise
+                led.off()
+                print("Lost connection to host")
+                self.state_machine.current_state = state_network
+                break
 
 
 utime.sleep(5)
-wifi = WiFi('AndroidAP', 'vaqz2756')
+wifi = WiFi(secrets.network_ssid, secrets.network_password)
 led = NetworkLed(33)
 led.off()
 
@@ -141,5 +146,4 @@ i2c = I2C(-1, scl=scl, sda=sda)
 
 light_sensor = BH1750(i2c)
 
-ntptime.settime()
 state_machine.run()
