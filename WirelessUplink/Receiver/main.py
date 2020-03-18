@@ -29,3 +29,4 @@ with FileLock("logs.csv.lock"):
         # Message number; send time; reception time; latency; temperature; light level
         log.write("{};{};{};{};{};{}\n".format(elements[0], elements[1], reception_time_string,
                                              latency, elements[2], elements[3]))
+        log.flush()

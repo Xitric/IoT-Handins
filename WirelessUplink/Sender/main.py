@@ -77,7 +77,7 @@ class NetworkState(State):
         while True:
             print("Connecting to host")
             try:
-                self.wifi.connection.connect(('192.168.87.24', 5000))
+                self.wifi.connection.connect(('192.168.0.24', 5000))
                 print("Connection established")
                 self.state_machine.current_state = state_connected
                 break
