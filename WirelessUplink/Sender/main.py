@@ -2,7 +2,7 @@ from machine import Pin, ADC, I2C, RTC
 from micropython import const
 import utime
 from bh1750 import BH1750
-from socket import socket
+from socket import socket, AF_INET, SOCK_DGRAM
 from network import WLAN, STA_IF
 import time_manager as ntptime
 import secrets
@@ -25,7 +25,8 @@ class WiFi:
         if self.connection:
             self.connection.close()
 
-        self.connection = socket()
+        # UDP connection
+        self.connection = socket(AF_INET, SOCK_DGRAM)
 
 
 class NetworkLed:

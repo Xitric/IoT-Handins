@@ -4,12 +4,14 @@ from datetime import datetime
 
 
 def get_connection() -> socket.socket:
-    s = socket.socket()
+    # UDP connection
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.bind(("", 5000))
-    s.listen()
-    c, a = s.accept()
-    print("Connection from {}".format(a))
-    return c
+    # s.listen()
+    # c, a = s.accept()
+    # print("Connection from {}".format(a))
+    # return c
+    return s
 
 
 with FileLock("logs.csv.lock"):
@@ -17,7 +19,8 @@ with FileLock("logs.csv.lock"):
 
     log = open("logs.csv", "a")
     while True:
-        msg = connection.recv(4096).decode("utf-8")
+        byte_data, addr = connection.recvfrom(4096)
+        msg = byte_data.decode("utf-8")
         elements = msg.split(";")
 
         send_time = datetime.strptime(elements[1], "%Y-%m-%d %H:%M:%S.%f")
